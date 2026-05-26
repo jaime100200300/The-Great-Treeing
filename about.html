@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Great Treeing</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            transition: opacity 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fade-to-white class */
+        .fade-out {
+            opacity: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            padding: 20px;
+            line-height: 1.6;
+            transition: opacity 0.4s ease-in;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="content">
+        <h1>The Great Treeing</h1>
+
+        <p>
+            The Great Treeing is a wonderful event where the trees… they tree.
+            They don’t grow, they don’t sprout, they don’t bloom, and they certainly
+            don’t photosynthesize politely.
+        </p>
+
+        <p>No. They <strong>TREE</strong>.</p>
+
+        <p>
+            They tree with intention.<br>
+            They tree with velocity.<br>
+            They tree with the raw, unfiltered power of chlorophyll‑based determination.
+        </p>
+
+        <p>
+            It is said that during this event, birds pause mid‑chirp, rivers hesitate mid‑flow,
+            even the wind whispers <em>dang</em>, and clouds drift respectfully.
+        </p>
+
+        <button class="back-btn" onclick="goBack()">Return</button>
+    </div>
+
+    <script>
+        function goBack() {
+
+            document.getElementById("content").style.opacity = "0";
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = "main.html";
+            }, 600);
+        }
+
+    </script>
+
+</body>
+</html>

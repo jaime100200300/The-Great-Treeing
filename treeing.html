@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Treeing</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(180deg, #139645, #0f7a38);
+            text-align: center;
+            opacity: 0;
+            animation: fadePage 0.8s ease-out forwards;
+            overflow-x: hidden;
+        }
+
+
+        @keyframes fadePage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Floating particles */
+        
+
+        /* Glass UI container */
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .tree {
+            width: 220px;
+            height: 220px;
+            border-radius: 40px;
+            box-shadow: 0 0 20px #d0d0d0;
+            animation: popIn 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            color: white;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        /* Lore section */
+        .lore-section {
+            margin-top: 80px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease-out;
+        }
+
+        .lore-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lore-section h2 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .lore-section p {
+            color: #e8ffe8;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Floating particles -->
+
+    <div class="page">
+
+    <div class="container">
+        <img class="tree" src="https://i.postimg.cc/597tYhbX/134135925035887126.jpg" alt="Tree">
+        <h1>The Great Treeing</h1>
+        <p>Welcome to the calm, clean, modern Treeing experience.</p>
+    </div>
+
+    <!-- Lore Scroll Section -->
+    <div class="lore-section" id="lore">
+        <h2>The Lore of the Treeing</h2>
+        <p>
+            The Great Treeing is not merely an event — it is a phenomenon.
+            A moment where the trees do not simply grow… they TREE.
+        </p>
+        <p>
+            They tree with intention.  
+            They tree with velocity.  
+            They tree with the raw, unfiltered power of chlorophyll‑based determination.
+        </p>
+        <p>
+            Legends say that during the Treeing, birds pause mid‑chirp,
+            rivers hesitate mid‑flow, and even the wind whispers “dang.”
+        </p>
+    </div>
+
+
+    <div class="lore-section" id="third">
+        <h2>The Thirding</h2>
+        <p>
+            A deeper layer of the Treeing — the moment where the forest
+            acknowledges itself. A quiet, powerful shift in the chlorophyll continuum.
+        </p>
+        <p>
+            Some say this is when the trees begin to hum. Others say it is when
+            the wind learns a new word.
+        </p>
+    </div>
+
+
+    </div>
+
+    <script>
+        // Reveal lore section on scroll
+        window.addEventListener("scroll", () => {
+            const lore = document.getElementById("lore");
+            const rect = lore.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                lore.classList.add("visible");
+            }
+
+
+            const third = document.getElementById("third");
+            const thirdRect = third.getBoundingClientRect();
+            if (thirdRect.top < window.innerHeight - 100) {
+                third.classList.add("visible");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

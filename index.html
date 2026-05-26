@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Treeing</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f7f7f7;
+            text-align: center;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Spin */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Fade text */
+        @keyframes fadein {
+            from { color: white; }
+            to { color: black; }
+        }
+
+        /* Fade image */
+        @keyframes fadeimg {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Spin container */
+        .spinning {
+            animation: spin 4s linear infinite;
+        }
+
+        /* Border morph */
+        @keyframes treeing {
+            from { border-radius: 0%; }
+            to { border-radius: 60px; }
+        }
+
+        .treeing {
+            animation:
+                treeing 1s cubic-bezier(0.19, 1, 0.49, 0.8) forwards,
+                fadeimg 0.5s linear forwards;
+            filter: drop-shadow(0 0 2em #646cffaa);
+            transition: transform 0.8s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        }
+
+        /* EXPONENTIAL ZOOM TRANSITION */
+        .zoom {
+            transform: scale(6);
+        }
+
+        .text {
+            animation: fadein 0.5s linear forwards;
+            margin-top: 20px;
+        }
+
+        /* Button animation */
+        @keyframes buttonIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .enter-btn {
+            margin-top: 25px;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+
+            animation: buttonIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="spinning">
+            <img id="tree" class="treeing" src="https://i.postimg.cc/597tYhbX/134135925035887126.jpg" width="200" height="200"/>
+        </div>
+
+        <h1 class="text">The Great Treeing</h1>
+
+        <button class="enter-btn" onclick="enterTree()">Enter the Tree</button>
+            <button class="enter-btn" onclick="enterAbout()">About the Great Treeing</button>
+
+    </div>
+
+    <script>
+
+        
+
+        function enterTree() {
+            const tree = document.getElementById('tree');
+
+            // Add zoom animation
+            tree.classList.add('zoom');
+
+            document.querySelectorAll(".enter-btn").forEach(btn => {
+                btn.style.display = "none";
+            });
+
+
+            // After animation finishes, go to treeing.html
+            setTimeout(() => {
+                window.location.href = 'treeing.html';
+            }, 800); // match the CSS transition time
+        }
+
+        function enterAbout() {
+            const tree = document.getElementById('tree');
+
+            // Add zoom animation
+            tree.classList.add('zoom');
+
+            document.querySelectorAll(".enter-btn").forEach(btn => {
+                btn.style.display = "none";
+            });
+
+
+            // After animation finishes, go to treeing.html
+            setTimeout(() => {
+                window.location.href = 'about.html';
+            }, 800); // match the CSS transition time
+        }
+    </script>
+
+</body>
+</html>
